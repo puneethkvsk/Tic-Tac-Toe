@@ -1,0 +1,68 @@
+#Player 1 symbol selection, followed by Player 2 symbol decision
+
+p1_symbol = input("Does Player 1 want to be X or O? ")
+p1_symbol = p1_symbol.upper()
+if p1_symbol == 'X':
+    p2_symbol = 'O'
+else:
+    p2_symbol = 'X'
+
+#Ready to start the game??
+
+ready_to_play = input("Are you ready to start the game? ")
+
+#display board
+def display_board(board):
+    print('\n' * 5)
+    print('   |   |')
+    print(' ' + board[7] + ' | ' + board[8] + ' | ' + board[9])
+    print('   |   |')
+    print('-----------')
+    print('   |   |')
+    print(' ' + board[4] + ' | ' + board[5] + ' | ' + board[6])
+    print('   |   |')
+    print('-----------')
+    print('   |   |')
+    print(' ' + board[1] + ' | ' + board[2] + ' | ' + board[3])
+    print('   |   |')
+
+game1_board = ['#', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+
+while ' ' in game1_board:
+
+    #take input for Player1
+    p1_loc = int(input("Player 1's turn: "))
+
+    #Put the symbol
+    game1_board[p1_loc] = p1_symbol
+
+    display_board(game1_board)
+
+    if game1_board[1] == game1_board[2] == game1_board[3] == p1_symbol or game1_board[1] == game1_board[4] == \
+            game1_board[7] == p1_symbol or game1_board[7] == game1_board[8] == game1_board[9] == p1_symbol or \
+            game1_board[1] == game1_board[5] == game1_board[9] == p1_symbol or game1_board[3] == game1_board[5] == \
+            game1_board[7] == p1_symbol:
+        print("Player 1 wins!")
+        break
+
+
+    if ' ' not in game1_board:
+        continue
+
+    #take input for Player2
+    p2_loc = int(input("Player 2's turn: "))
+
+    #Put the symbol
+    game1_board[p2_loc] = p2_symbol
+
+    display_board(game1_board)
+
+    if game1_board[1] == game1_board[2] == game1_board[3] == p2_symbol or game1_board[1] == game1_board[4] == \
+            game1_board[7] == p2_symbol or game1_board[7] == game1_board[8] == game1_board[9] == p2_symbol or \
+            game1_board[1] == game1_board[5] == game1_board[9] == p2_symbol or game1_board[3] == game1_board[5] == \
+            game1_board[7] == p2_symbol:
+        print("Player 2 wins!")
+        break
+
+    if ' ' not in game1_board:
+        break
