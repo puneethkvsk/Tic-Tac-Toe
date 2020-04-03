@@ -10,6 +10,11 @@ else:
 #Ready to start the game??
 
 ready_to_play = input("Are you ready to start the game? ")
+if ready_to_play=="Yes":
+    pass
+else:
+    print("You don't want to play the game")
+    exit()
 
 #display board
 def display_board(board):
